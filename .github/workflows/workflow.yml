@@ -56,6 +56,7 @@ jobs:
             
             #create .env file from git variables
             cat << EOF > ~/${{ vars.PROJECT_NAME }}/.env
+            GOOGLE_APPLICATION_CREDENTIALS=/app/keyfile.json
             ${{ vars.ENV }}
             EOF
             
@@ -72,6 +73,7 @@ jobs:
                 networks: 
                   - npm
                 volumes:
+                  - '/etc/gcp/keyfile.json:/app/keyfile.json:ro'
                   - 'srg-ai-back:/app/data'
                 
             networks:
