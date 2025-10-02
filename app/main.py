@@ -11,7 +11,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# --- CORS (Cross-Origin Resource Sharing) Middleware ---
+# --- CORS Middleware ---
 origins = [
     "http://localhost",
     "http://localhost:3000",
