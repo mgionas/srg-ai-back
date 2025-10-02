@@ -1,4 +1,4 @@
-name: Deploy SRG AI Backand
+name: Deploy SRG AI Backend
 
 on:
   push:

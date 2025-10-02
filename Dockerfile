@@ -41,9 +41,6 @@ COPY --from=builder /deps /deps
 # Copy your application source code (the 'app' directory)
 COPY ./app ./app
 
-# Expose the port the app will run on
-EXPOSE 8000
-
 # The command to run the Uvicorn server.
-# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 
