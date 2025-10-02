@@ -54,6 +54,11 @@ jobs:
             # Pull the latest image
             docker pull ${{ env.IMAGE_NAME }}:latest
             
+            #create .env file from git variables
+            cat << EOF > ~/${{ vars.PROJECT_NAME }}/.env
+            ${{ vars.ENV }}
+            EOF
+            
             # Create or update the docker-compose.yml
             cat << 'EOF' > ~/${{ vars.PROJECT_NAME }}/docker-compose.yml
             version: '3.8'
