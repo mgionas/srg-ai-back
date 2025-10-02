@@ -63,15 +63,17 @@ jobs:
             cat << 'EOF' > ~/${{ vars.PROJECT_NAME }}/docker-compose.yml
             version: '3.8'
             services:
-              frontend:
+              backend:
                 image: ${{ env.IMAGE_NAME }}:latest
                 container_name: ${{ vars.PROJECT_NAME }}
                 restart: unless-stopped
+                env_file:
+                  - ./.env
                 networks: 
                   - npm
                 volumes:
                   - 'srg-ai-back:/app/data'
-            
+                
             networks:
               npm:
                 external: true
