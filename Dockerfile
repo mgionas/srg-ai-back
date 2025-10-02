@@ -23,10 +23,13 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copy the installed dependencies
+# Copy the installed dependencies from the 'base' stage
 COPY --from=base /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
-# Copy source code
+# *** ADDED THIS LINE TO FIX THE ERROR ***
+COPY --from=base /usr/local/bin /usr/local/bin
+
+# Copy your application source code (the 'app' directory)
 COPY ./app ./app
 
 

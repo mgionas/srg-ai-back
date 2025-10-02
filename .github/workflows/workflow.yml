@@ -64,9 +64,10 @@ jobs:
                 restart: unless-stopped
                 networks: 
                   - npm
+                      external: true
                 volumes:
                   - 'srg-ai-back:/app/data'
-        
+                      external: true
             networks:
               npm:
                 external: true
