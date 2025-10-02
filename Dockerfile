@@ -33,7 +33,7 @@ ENV PATH="/deps/bin:${PATH}"
 ENV PYTHONPATH="/deps"
 
 # Install bash using apt-get (the correct package manager for python:slim)
-RUN apt-get update && apt-get install -y --no-install-recommends bash && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y bash
 
 # Copy the isolated dependencies from the builder stage
 COPY --from=builder /deps /deps
