@@ -20,6 +20,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # --- STAGE 2: Final production image ---
 FROM python:3.11-slim
+RUN apk add --no-cache bash
 
 WORKDIR /app
 
